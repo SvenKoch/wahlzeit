@@ -8,10 +8,11 @@ package org.wahlzeit.model;
  */
 public class Coordinate {
 	
-	private final int EARTHRADIUS = 6371000;
+	private final int EARTHRADIUS = 6371;
 	
-	private double latitude;
-	private double longitude;
+	// latitude and longitude in degrees
+	private final double latitude;
+	private final double longitude;
 	
 	/**
 	 * @methodtype constructor
@@ -39,21 +40,12 @@ public class Coordinate {
 	 * 
 	 */
 	public double getDistance(Coordinate other){
-		double deltaLongitude = Math.abs(this.longitude-other.getLongitude());
-		double phi1 = this.latitude;
-		double phi2 = other.getLatitude();
+		double deltaLongitude = Math.abs(Math.toRadians(this.longitude-other.getLongitude()));
+		double phi1 = Math.toRadians(this.latitude);
+		double phi2 = Math.toRadians(other.getLatitude());
 		
-		// simple algorithm
-		// double centralAngle = Math.acos(Math.sin(this.latitude)*Math.sin(other.latitude)+Math.cos(this.longitude)*Math.cos(other.longitude)*Math.cos(deltaLongitude));
-		
-		// precise algorithm
-		double temp1 = Math.cos(phi2)*Math.sin(deltaLongitude);
-		temp1 = temp1*temp1;
-		double temp2 = Math.cos(phi1)*Math.sin(phi2) - Math.sin(phi1)*Math.cos(phi2)*Math.cos(deltaLongitude);
-		temp2 = temp2*temp2;
-		
-		double centralAngle = Math.atan(Math.sqrt(temp1 + temp2) / (Math.sin(phi1) * Math.sin(phi2)+Math.cos(phi1)*Math.cos(phi2)*Math.cos(deltaLongitude)));
-		
-		return Math.abs(centralAngle * EARTHRADIUS);
+		// https://en.wikipedia.org/wiki/Great-circle_distance
+		double centralAngle = Math.acos(Math.sin(phi1)*Math.sin(phi2)+Math.cos(phi1)*Math.cos(phi2)*Math.cos(deltaLongitude));
+		return centralAngle * EARTHRADIUS;
 	}
 }
