@@ -1,12 +1,13 @@
-package org.wahlzeit.handlers;
+package org.wahlzeit.utils;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-	TellFriendTest.class
+	StringUtilTest.class,
+	VersionTest.class
 })
-public class HandlersTest {
+public class UtilsTestSuite {
 
 }

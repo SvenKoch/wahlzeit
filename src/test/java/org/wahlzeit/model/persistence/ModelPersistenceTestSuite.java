@@ -5,10 +5,9 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-	AbstractAdapterTest.class,
 	DatastoreAdapterTest.class,
 	GcsAdapterTest.class
 })
-public class ModelPersistenceTest {
+public class ModelPersistenceTestSuite {
 
 }
