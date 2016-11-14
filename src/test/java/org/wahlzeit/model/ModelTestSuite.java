@@ -11,6 +11,8 @@ import org.wahlzeit.model.persistence.ModelPersistenceTestSuite;
 	FlagReasonTest.class,
 	GenderTest.class,
 	GuestTest.class,
+	KeyboardPhotoFactoryTest.class,
+	KeyboardPhotoTest.class,
 	LocationTest.class,
 	PhotoFilterTest.class,
 	TagsTest.class,
