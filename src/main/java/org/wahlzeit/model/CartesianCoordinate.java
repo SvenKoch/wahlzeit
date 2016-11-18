@@ -2,6 +2,7 @@ package org.wahlzeit.model;
 
 public class CartesianCoordinate implements Coordinate {
 	
+	// Cartesian coordinates in km
 	private final double x;
 	private final double y;
 	private final double z;
