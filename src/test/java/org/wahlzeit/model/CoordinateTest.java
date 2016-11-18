@@ -19,7 +19,7 @@ public class CoordinateTest {
 	 */
 	@Test
 	public void testConstructorAndAccessMethods(){
-		Coordinate random = new Coordinate(67.0, 130.0);
+		SphericCoordinate random = new SphericCoordinate(67.0, 130.0);
 		assertEquals(67.0, random.getLatitude(), 0.0);
 		assertEquals(130.0, random.getLongitude(), 0.0);
 	}
@@ -29,11 +29,11 @@ public class CoordinateTest {
 	 */
 	@Test
 	public void testGetDistance() {
-		Coordinate zerozero = new Coordinate(0.0, 0.0);
-		Coordinate first = new Coordinate(0.0, 90.0);
-		Coordinate second = new Coordinate(0.0, -90.0);
-		Coordinate random1 = new Coordinate(67.0, 130.0);
-		Coordinate random2 = new Coordinate(-23.0, -5.0);
+		SphericCoordinate zerozero = new SphericCoordinate(0.0, 0.0);
+		SphericCoordinate first = new SphericCoordinate(0.0, 90.0);
+		SphericCoordinate second = new SphericCoordinate(0.0, -90.0);
+		SphericCoordinate random1 = new SphericCoordinate(67.0, 130.0);
+		SphericCoordinate random2 = new SphericCoordinate(-23.0, -5.0);
 		
 		assertEquals(0.0, zerozero.getDistance(zerozero), 0.0);
 		assertEquals(0.0, first.getDistance(first), 0.0);

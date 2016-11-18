@@ -17,7 +17,7 @@ public class LocationTest {
 	 */
 	@Test
 	public void testConstructor(){
-		Coordinate coord = new Coordinate(23, 42);
+		SphericCoordinate coord = new SphericCoordinate(23, 42);
 		Location loc = new Location(coord);
 		
 		assertEquals(coord, loc.coordinate);
