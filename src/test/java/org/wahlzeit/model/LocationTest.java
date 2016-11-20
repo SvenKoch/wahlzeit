@@ -4,6 +4,7 @@
 package org.wahlzeit.model;
 
 import org.junit.Test;
+import org.wahlzeit.model.coordinate.SphericCoordinate;
 
 import static org.junit.Assert.assertEquals;
 

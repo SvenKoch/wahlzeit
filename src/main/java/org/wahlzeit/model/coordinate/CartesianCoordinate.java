@@ -1,6 +1,6 @@
-package org.wahlzeit.model;
+package org.wahlzeit.model.coordinate;
 
-public class CartesianCoordinate implements Coordinate {
+public class CartesianCoordinate extends AbstractCoordinate {
 	
 	// Cartesian coordinates in km
 	private final double x;
@@ -9,32 +9,27 @@ public class CartesianCoordinate implements Coordinate {
 
 	/**
 	 * @methodtype constructor
+	 * @param x cartesian coordinate x in km
+	 * @param y cartesian coordinate y in km
+	 * @param z cartesian coordinate z in km
 	 */
 	public CartesianCoordinate(double x, double y, double z){
+		double delta=10;
+		if(x*x+y*y+z*z<(EARTHRADIUS-delta)*(EARTHRADIUS-delta) || x*x+y*y+z*z>(EARTHRADIUS+delta)*(EARTHRADIUS+delta)){
+			throw new IllegalArgumentException("Coordinate has to be located earth's surface!");
+		}
+		
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
 	
-	@Override
-	public double getDistance(Coordinate other) {
-		CartesianCoordinate o = other.asCartesianCoordinate();
-		return doGetDistance(o);
-	}
-	
-	private double doGetDistance(CartesianCoordinate other){
+	protected double doGetDistance(CartesianCoordinate other){
 		double dx = other.getX()-this.x;
 		double dy = other.getY()-this.y;
 		double dz = other.getZ()-this.z;
 		
 		return Math.sqrt(dx*dx + dy*dy + dz*dz);
-	}
-
-	@Override
-	public SphericCoordinate asSphericCoordinate() {
-		double lat = Math.asin(z / EARTHRADIUS);
-		double lon = Math.atan2(y, z);
-		return new SphericCoordinate(lat,lon);
 	}
 
 	@Override
