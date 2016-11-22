@@ -13,5 +13,10 @@ public abstract class AbstractCoordinate implements Coordinate {
 	public double getDistance(Coordinate other) {
 		return this.asCartesianCoordinate().doGetDistance(other.asCartesianCoordinate());
 	}
+	
+	@Override
+	public boolean isEqual(Coordinate other) {
+		return this.asCartesianCoordinate().isEqual(other.asCartesianCoordinate());
+	}
 
 }

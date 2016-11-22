@@ -31,6 +31,10 @@ public class CartesianCoordinate extends AbstractCoordinate {
 		
 		return Math.sqrt(dx*dx + dy*dy + dz*dz);
 	}
+	
+	public boolean isEqual(CartesianCoordinate other) {
+		return this.getX()==other.getX() && this.getY()==other.getY() && this.getZ()==other.getZ();
+	}
 
 	@Override
 	public CartesianCoordinate asCartesianCoordinate() {
