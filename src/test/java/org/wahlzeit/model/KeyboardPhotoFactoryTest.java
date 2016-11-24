@@ -7,14 +7,15 @@ import org.junit.Test;
 
 public class KeyboardPhotoFactoryTest {
 
+	// note that KeyboardPhotoFactory.initialize() has to be called in order for this to work. This is done in the AllTestSuite for testing and in ModelMain for productive code.
 	
 	@Test
 	public void testSingleton(){
-		assertEquals(true, KeyboardPhotoFactory.getInstance() instanceof KeyboardPhotoFactory);
+		assertEquals(true, PhotoFactory.getInstance() instanceof KeyboardPhotoFactory);
 	}
 	
 	@Test
 	public void testFactoryMethod(){
-		assertEquals(true, KeyboardPhotoFactory.getInstance().createPhoto() instanceof KeyboardPhoto);
+		assertEquals(true, PhotoFactory.getInstance().createPhoto() instanceof KeyboardPhoto);
 	}
 }
