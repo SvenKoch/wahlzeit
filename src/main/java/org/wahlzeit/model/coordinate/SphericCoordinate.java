@@ -48,16 +48,5 @@ public class SphericCoordinate extends AbstractCoordinate {
 	public double getLongitude(){
 		return longitude;
 	}
-	
-	
-	/*private double doGetDistance(SphericCoordinate other){
-		double deltaLongitude = Math.abs(Math.toRadians(this.longitude-other.getLongitude()));
-		double phi1 = Math.toRadians(this.latitude);
-		double phi2 = Math.toRadians(other.getLatitude());
-		
-		// https://en.wikipedia.org/wiki/Great-circle_distance
-		double centralAngle = Math.acos(Math.sin(phi1)*Math.sin(phi2)+Math.cos(phi1)*Math.cos(phi2)*Math.cos(deltaLongitude));
-		return centralAngle * EARTHRADIUS;
-	}*/
 
 }

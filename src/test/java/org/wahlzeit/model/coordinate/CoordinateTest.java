@@ -1,15 +1,21 @@
 package org.wahlzeit.model.coordinate;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class CoordinateTest {
+	
+	private SphericCoordinate sc;
+	
+	@Before
+	public void setUp(){
+		sc = new SphericCoordinate(67, 130);
+	}
 
 	@Test
 	public void testIsEqual(){
-		SphericCoordinate sc = new SphericCoordinate(67, 130);
 		assertTrue(sc.isEqual(sc));
 		assertTrue(sc.isEqual(sc.asCartesianCoordinate()));
 		assertTrue(sc.asCartesianCoordinate().isEqual(sc));
@@ -18,11 +24,18 @@ public class CoordinateTest {
 	
 	@Test
 	public void testNotEqual(){
-		SphericCoordinate sc1 = new SphericCoordinate(67, 130);
 		SphericCoordinate sc2= new SphericCoordinate(60, 130);
-		assertFalse(sc1.isEqual(sc2));
-		assertFalse(sc1.isEqual(sc2.asCartesianCoordinate()));
-		assertFalse(sc1.asCartesianCoordinate().isEqual(sc2));
-		assertFalse(sc1.asCartesianCoordinate().isEqual(sc2.asCartesianCoordinate()));
+		assertFalse(sc.isEqual(sc2));
+		assertFalse(sc.isEqual(sc2.asCartesianCoordinate()));
+		assertFalse(sc.asCartesianCoordinate().isEqual(sc2));
+		assertFalse(sc.asCartesianCoordinate().isEqual(sc2.asCartesianCoordinate()));
+	}
+	
+	@Test
+	public void testGetDistance(){
+		assertEquals(0, sc.getDistance(sc),0);
+		assertEquals(0, sc.getDistance(sc.asCartesianCoordinate()),0);
+		assertEquals(0, sc.asCartesianCoordinate().getDistance(sc),0);
+		assertEquals(0, sc.asCartesianCoordinate().getDistance(sc.asCartesianCoordinate()),0);
 	}
 }
