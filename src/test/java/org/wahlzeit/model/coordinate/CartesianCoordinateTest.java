@@ -8,11 +8,6 @@ public class CartesianCoordinateTest {
 	
 	private final int EARTHRADIUS = 6371;
 	
-	@Test(expected=IllegalArgumentException.class)
-	public void testIllegalConstructorArgumentsCartesian(){
-		new CartesianCoordinate(90, 60, 90);
-	}
-	
 	@Test
 	public void testConstructorAndAccessMethodsCartesian(){
 		double x = 1907;

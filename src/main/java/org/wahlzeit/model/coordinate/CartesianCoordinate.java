@@ -14,17 +14,13 @@ public class CartesianCoordinate extends AbstractCoordinate {
 	 * @param z cartesian coordinate z in km
 	 */
 	public CartesianCoordinate(double x, double y, double z){
-		double delta=10;
-		if(x*x+y*y+z*z<(EARTHRADIUS-delta)*(EARTHRADIUS-delta) || x*x+y*y+z*z>(EARTHRADIUS+delta)*(EARTHRADIUS+delta)){
-			throw new IllegalArgumentException("Coordinate has to be located earth's surface!");
-		}
-		
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
 	
 	protected double doGetDistance(CartesianCoordinate other){
+		assert(other!=null);
 		double dx = other.getX()-this.x;
 		double dy = other.getY()-this.y;
 		double dz = other.getZ()-this.z;
@@ -33,6 +29,7 @@ public class CartesianCoordinate extends AbstractCoordinate {
 	}
 	
 	public boolean isEqual(CartesianCoordinate other) {
+		assert(other!=null);
 		return this.getX()==other.getX() && this.getY()==other.getY() && this.getZ()==other.getZ();
 	}
 
