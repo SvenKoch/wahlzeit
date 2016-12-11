@@ -6,6 +6,8 @@ public class CartesianCoordinate extends AbstractCoordinate {
 	private final double x;
 	private final double y;
 	private final double z;
+	
+	private static final double DELTA = 1e-6;
 
 	/**
 	 * @methodtype constructor
@@ -20,7 +22,7 @@ public class CartesianCoordinate extends AbstractCoordinate {
 	}
 	
 	protected double doGetDistance(CartesianCoordinate other){
-		assert(other!=null);
+		assertNotNull(other);
 		double dx = other.getX()-this.x;
 		double dy = other.getY()-this.y;
 		double dz = other.getZ()-this.z;
@@ -29,8 +31,8 @@ public class CartesianCoordinate extends AbstractCoordinate {
 	}
 	
 	public boolean isEqual(CartesianCoordinate other) {
-		assert(other!=null);
-		return this.getX()==other.getX() && this.getY()==other.getY() && this.getZ()==other.getZ();
+		assertNotNull(other);
+		return this.doGetDistance(other) < DELTA;
 	}
 
 	@Override

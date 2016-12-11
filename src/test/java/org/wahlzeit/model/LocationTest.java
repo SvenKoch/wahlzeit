@@ -21,6 +21,6 @@ public class LocationTest {
 		SphericCoordinate coord = new SphericCoordinate(23, 42);
 		Location loc = new Location(coord);
 		
-		assertEquals(coord, loc.coordinate);
+		assertEquals(coord, loc.getCoordinate());
 	}
 }

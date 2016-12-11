@@ -13,6 +13,8 @@ public class SphericCoordinate extends AbstractCoordinate {
 	private final double longitude;
 	// radius in km
 	private final double radius;
+	// Earth's radius in km
+	public static final int EARTHRADIUS = 6371;
 	
 	
 	/**

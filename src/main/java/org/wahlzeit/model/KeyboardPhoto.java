@@ -29,6 +29,9 @@ public class KeyboardPhoto extends Photo {
 	
 	public KeyboardPhoto(PhotoId myId, String manufacturer, String model, int numberOfKeys, boolean hasNumPad) {
 		super(myId);
+		if(myId == null){
+			throw new IllegalArgumentException("PhotoId may not be null!");
+		}
 		this.manufacturer = manufacturer;
 		this.model = model;
 		this.numberOfKeys = numberOfKeys;
