@@ -72,7 +72,7 @@ public class SphericCoordinate extends AbstractCoordinate {
 	}
 	
 	private void assertValidRadius(double radius){
-		if(radius < 0){
+		if(!Double.isFinite(radius) || radius < 0){
 			throw new IllegalArgumentException("Valid values for radius are: 0<=radius");
 		}
 	}

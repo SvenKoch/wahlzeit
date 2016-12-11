@@ -23,7 +23,6 @@ public class KeyboardPhotoFactory extends PhotoFactory {
 	}
 
 	public Photo createPhoto(PhotoId id) {
-		assertPhotoIdNotNull(id);
 		return new KeyboardPhoto(id);
 	}
 
@@ -32,14 +31,8 @@ public class KeyboardPhotoFactory extends PhotoFactory {
 	}
 
 	public KeyboardPhoto createPhoto(PhotoId id, String manufacturer, String model, int numberOfKeys, boolean hasNumPad){
-		assertPhotoIdNotNull(id);
 		return new KeyboardPhoto(id, manufacturer, model, numberOfKeys, hasNumPad);
 	}
 	
-	private void assertPhotoIdNotNull(PhotoId id){
-		if (id == null){
-			throw new IllegalArgumentException("PhotoId may not be null!");
-		}
-	}
 
 }

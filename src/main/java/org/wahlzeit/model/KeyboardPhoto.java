@@ -32,6 +32,9 @@ public class KeyboardPhoto extends Photo {
 		if(myId == null){
 			throw new IllegalArgumentException("PhotoId may not be null!");
 		}
+		if(numberOfKeys<0){
+			throw new IllegalArgumentException("numberOfKeys may not be negative!");
+		}
 		this.manufacturer = manufacturer;
 		this.model = model;
 		this.numberOfKeys = numberOfKeys;

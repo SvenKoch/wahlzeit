@@ -26,5 +26,11 @@ public abstract class AbstractCoordinate implements Coordinate {
 			throw new IllegalArgumentException("Argument may not be null!");
 		}
 	}
+	
+	protected void assertValidDouble(double d){
+		if(!Double.isFinite(d)){
+			throw new IllegalArgumentException("Double value may not be infinite or NaN!");
+		}
+	}
 
 }
