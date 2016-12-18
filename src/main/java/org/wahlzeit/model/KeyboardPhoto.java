@@ -21,6 +21,7 @@ public class KeyboardPhoto extends Photo {
 
 	public KeyboardPhoto(String manufacturer, String model, int numberOfKeys, boolean hasNumPad) {
 		super();
+		assertNumberOfKeysNotNegative(numberOfKeys);
 		this.manufacturer = manufacturer;
 		this.model = model;
 		this.numberOfKeys = numberOfKeys;
@@ -32,9 +33,7 @@ public class KeyboardPhoto extends Photo {
 		if(myId == null){
 			throw new IllegalArgumentException("PhotoId may not be null!");
 		}
-		if(numberOfKeys<0){
-			throw new IllegalArgumentException("numberOfKeys may not be negative!");
-		}
+		assertNumberOfKeysNotNegative(numberOfKeys);
 		this.manufacturer = manufacturer;
 		this.model = model;
 		this.numberOfKeys = numberOfKeys;
@@ -62,6 +61,7 @@ public class KeyboardPhoto extends Photo {
 	}
 
 	public void setNumberOfKeys(int numberOfKeys) {
+		assertNumberOfKeysNotNegative(numberOfKeys);
 		this.numberOfKeys = numberOfKeys;
 	}
 
@@ -71,6 +71,12 @@ public class KeyboardPhoto extends Photo {
 
 	public void setHasNumPad(boolean hasNumPad) {
 		this.hasNumPad = hasNumPad;
+	}
+	
+	private void assertNumberOfKeysNotNegative(int numberOfKeys){
+		if(numberOfKeys<0){
+			throw new IllegalArgumentException("numberOfKeys may not be negative!");
+		}
 	}
 	
 

@@ -11,7 +11,7 @@ public class CoordinateTest {
 	
 	@Before
 	public void setUp(){
-		sc = new SphericCoordinate(67, 130);
+		sc = SphericCoordinate.getInstance(67, 130);
 	}
 
 	@Test
@@ -24,7 +24,7 @@ public class CoordinateTest {
 	
 	@Test
 	public void testNotEqual(){
-		SphericCoordinate sc2= new SphericCoordinate(60, 130);
+		SphericCoordinate sc2 = SphericCoordinate.getInstance(60, 130);
 		assertFalse(sc.isEqual(sc2));
 		assertFalse(sc.isEqual(sc2.asCartesianCoordinate()));
 		assertFalse(sc.asCartesianCoordinate().isEqual(sc2));

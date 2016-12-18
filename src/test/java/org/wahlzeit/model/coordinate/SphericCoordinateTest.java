@@ -1,6 +1,6 @@
 package org.wahlzeit.model.coordinate;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -10,30 +10,30 @@ public class SphericCoordinateTest {
 
 	@Test(expected=IllegalArgumentException.class)
 	public void testIllegalLatitude(){
-		new SphericCoordinate(91, 60);
+		SphericCoordinate.getInstance(91, 60);
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testIllegalLongitude(){
-		new SphericCoordinate(60, -181);
+		SphericCoordinate.getInstance(60, -181);
 	}
 	
 	@Test
 	public void testConstructorAndAccessMethods(){
 		double lat = 67;
 		double lon = 130;
-		SphericCoordinate coord = new SphericCoordinate(lat,lon);
+		SphericCoordinate coord = SphericCoordinate.getInstance(lat,lon);
 		assertEquals(lat, coord.getLatitude(), 0.0);
 		assertEquals(lon, coord.getLongitude(), 0.0);
 	}
 	
 	@Test
 	public void testGetDistance() {
-		SphericCoordinate zerozero = new SphericCoordinate(0.0, 0.0);
-		SphericCoordinate halfeast = new SphericCoordinate(0.0, 90.0);
-		SphericCoordinate halfwest = new SphericCoordinate(0.0, -90.0);
-		SphericCoordinate northeast = new SphericCoordinate(67.0, 130.0);
-		SphericCoordinate southwest = new SphericCoordinate(-23.0, -5.0);
+		SphericCoordinate zerozero = SphericCoordinate.getInstance(0.0, 0.0);
+		SphericCoordinate halfeast = SphericCoordinate.getInstance(0.0, 90.0);
+		SphericCoordinate halfwest = SphericCoordinate.getInstance(0.0, -90.0);
+		SphericCoordinate northeast = SphericCoordinate.getInstance(67.0, 130.0);
+		SphericCoordinate southwest = SphericCoordinate.getInstance(-23.0, -5.0);
 		
 		assertEquals(0.0, zerozero.getDistance(zerozero), 0.0);
 		assertEquals(0.0, halfeast.getDistance(halfeast), 0.0);
@@ -45,5 +45,13 @@ public class SphericCoordinateTest {
 		assertEquals(Math.sqrt(2*EARTHRADIUS*EARTHRADIUS), zerozero.getDistance(halfeast), 1.0);
 		assertEquals(Math.sqrt(2*EARTHRADIUS*EARTHRADIUS), zerozero.getDistance(halfwest), 1.0);
 		assertEquals(11447, northeast.getDistance(southwest), 10.0);
+	}
+	
+	@Test
+	public void testShared(){
+		SphericCoordinate sc1 = SphericCoordinate.getInstance(67, 130);
+		SphericCoordinate sc2 = SphericCoordinate.getInstance(67, 130, EARTHRADIUS);
+		
+		assertTrue(sc1==sc2);
 	}
 }
