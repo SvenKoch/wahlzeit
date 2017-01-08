@@ -5,8 +5,14 @@ package org.wahlzeit.model.coordinate;
 
 import java.util.HashMap;
 
-/**
- * 
+
+/*
+ * @PatternInstance(
+ * 	patternName = "Value Object"
+ * 	participants = {
+ * 		"ValueObject"
+ *  }
+ * )
  */
 public class SphericCoordinate extends AbstractCoordinate {
 	

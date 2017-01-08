@@ -2,6 +2,15 @@ package org.wahlzeit.model;
 
 import org.wahlzeit.services.LogBuilder;
 
+/*
+ * @PatternInstance(
+ * 	patternName = "Abstract Factory"
+ * 	participants = {
+ * 		"AbstractFactory",
+ * 		"ConcreteFactory"
+ *  }
+ * )
+ */
 public class KeyboardPhotoFactory extends PhotoFactory {
 
 	public static void initialize() {
