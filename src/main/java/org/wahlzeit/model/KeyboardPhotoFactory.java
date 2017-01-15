@@ -26,22 +26,20 @@ public class KeyboardPhotoFactory extends PhotoFactory {
 		return instance;
 	}
 
-
-	public Photo createPhoto() {
-		return new KeyboardPhoto();
-	}
-
-	public Photo createPhoto(PhotoId id) {
-		return new KeyboardPhoto(id);
-	}
-
-	public KeyboardPhoto createPhoto(String manufacturer, String model, int numberOfKeys, boolean hasNumPad){
-		return new KeyboardPhoto(manufacturer, model, numberOfKeys, hasNumPad);
-	}
-
-	public KeyboardPhoto createPhoto(PhotoId id, String manufacturer, String model, int numberOfKeys, boolean hasNumPad){
-		return new KeyboardPhoto(id, manufacturer, model, numberOfKeys, hasNumPad);
+	public KeyboardPhoto createPhoto(){
+		return new KeyboardPhoto(null);
 	}
 	
+	public KeyboardPhoto createPhoto(PhotoId id){
+		return new KeyboardPhoto(id, null);
+	}
+
+	public KeyboardPhoto createPhoto(Keyboard content) {
+		return new KeyboardPhoto(content);
+	}
+
+	public KeyboardPhoto createPhoto(PhotoId id, Keyboard content) {
+		return new KeyboardPhoto(id, content);
+	}	
 
 }
