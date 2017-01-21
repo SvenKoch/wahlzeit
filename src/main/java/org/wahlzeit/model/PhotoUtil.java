@@ -39,7 +39,9 @@ public class PhotoUtil {
 	/**
 	 * @methodtype creation
 	 */
+	// step 2 in creating a new KeyboardPhoto
 	public static Photo createPhoto(String filename, PhotoId id, Image uploadedImage) throws Exception {
+		// step 3 in creating a new KeyboardPhoto is invoked here
 		Photo result = PhotoFactory.getInstance().createPhoto(id);
 		result.setEnding(filename.substring(filename.lastIndexOf(".") + 1));
 

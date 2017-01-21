@@ -30,7 +30,9 @@ public class KeyboardPhotoFactory extends PhotoFactory {
 		return new KeyboardPhoto(null);
 	}
 	
+	// step 3 in creating a new KeyboardPhoto
 	public KeyboardPhoto createPhoto(PhotoId id){
+		// new KeyboardPhoto is created (step 4)
 		return new KeyboardPhoto(id, null);
 	}
 

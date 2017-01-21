@@ -346,8 +346,10 @@ public class PhotoManager extends ObjectManager {
 	/**
 	 *
 	 */
+	// step 1 in creating a new KeyboardPhoto
 	public Photo createPhoto(String filename, Image uploadedImage) throws Exception {
 		PhotoId id = PhotoId.getNextId();
+		// step 2 in creating a new KeyboardPhoto is invoked here
 		Photo result = PhotoUtil.createPhoto(filename, id, uploadedImage);
 		addPhoto(result);
 		return result;

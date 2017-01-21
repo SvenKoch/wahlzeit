@@ -39,7 +39,7 @@ public class KeyboardManager extends ObjectManager {
 		Set<Keyboard> result = new HashSet<Keyboard>();
 
 		for (Keyboard k : keyboardCache.keySet()) {
-			if(k.getOwner()==owner){
+			if(k.getOwner().equals(owner)){
 				result.add(k);
 			}
 		}
@@ -79,7 +79,9 @@ public class KeyboardManager extends ObjectManager {
 	/**
 	 *
 	 */
+	// step 1 in creating a new Keyboard
 	public Keyboard getKeyboard(KeyboardType type, String serialNumber, String owner) {
+		// new Keyboard is created (step 2)
 		Keyboard keyboard = new Keyboard(type, serialNumber, owner);
 		Keyboard result = keyboardCache.get(keyboard);
 		if(result == null){
@@ -111,20 +113,5 @@ public class KeyboardManager extends ObjectManager {
 		}
 		return result;
 	}
-
-	/**
-	 * @methodtype get
-	 */
-	public Map<Keyboard, Keyboard> getKeyboardCache() {
-		return keyboardCache;
-	}
-	
-	/**
-	 * @methodtype get
-	 */
-	public Map<KeyboardType, KeyboardType> getKeyboardTypeCache() {
-		return keyboardTypeCache;
-	}
-
 
 }
