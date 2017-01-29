@@ -5,15 +5,14 @@ package org.wahlzeit.model.coordinate;
 
 import java.util.HashMap;
 
+import org.wahlzeit.utils.PatternInstance;
 
-/*
- * @PatternInstance(
- * 	patternName = "Value Object"
- * 	participants = {
- * 		"ValueObject"
- *  }
- * )
- */
+@PatternInstance(
+	patternName = "Value Object",
+	participants = {
+		"ValueObject"
+	}
+)
 public class SphericCoordinate extends AbstractCoordinate {
 	
 	// latitude and longitude in degrees

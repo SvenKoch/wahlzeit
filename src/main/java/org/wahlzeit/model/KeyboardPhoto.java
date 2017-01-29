@@ -1,16 +1,17 @@
 package org.wahlzeit.model;
 
+import org.wahlzeit.utils.PatternInstance;
+
 import com.googlecode.objectify.annotation.Subclass;
 
-/*
- * @PatternInstance(
- * 	patternName = "Abstract Factory"
- * 	participants = {
- * 		"AbstractProduct",
- * 		"ConcreteProduct"
- *  }
- * )
- */
+@PatternInstance (
+	patternName = "Abstract Factory",
+	participants = {
+		"AbstractProduct",
+ 		"ConcreteProduct"
+	}
+)
+ 
 @Subclass
 public class KeyboardPhoto extends Photo {
 	

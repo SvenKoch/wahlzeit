@@ -2,14 +2,14 @@ package org.wahlzeit.model.coordinate;
 
 import java.util.HashMap;
 
-/*
- * @PatternInstance(
- * 	patternName = "Value Object"
- * 	participants = {
- * 		"ValueObject"
- *  }
- * )
- */
+import org.wahlzeit.utils.PatternInstance;
+
+@PatternInstance(
+	patternName = "Value Object",
+	participants = {
+		"ValueObject"
+	}
+)
 public class CartesianCoordinate extends AbstractCoordinate {
 	
 	// Cartesian coordinates in km
